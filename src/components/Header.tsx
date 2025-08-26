@@ -12,31 +12,31 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 glass border-b border-border/50">
+    <header className="sticky top-0 z-50 morphism border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3">
-              <div className="h-12 w-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow">
+              <div className="h-12 w-12 bg-gradient-modern rounded-xl flex items-center justify-center animate-glow">
                 <span className="text-white font-bold text-xl">A</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">ASHAVRITI</h1>
-                <p className="text-sm text-muted-foreground">PMSSS Portal</p>
+                <h1 className="text-xl font-bold text-white">ASHAVRITI</h1>
+                <p className="text-sm text-white/70">PMSSS Portal</p>
               </div>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-smooth font-medium">
+            <a href="#" className="text-white hover:text-secondary transition-smooth font-medium">
               Home
             </a>
             
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-foreground hover:text-primary transition-smooth font-medium">
-                <span>Schemes</span>
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-white hover:text-secondary transition-smooth font-medium">
+                <span>Features</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
@@ -55,30 +55,33 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="#" className="text-foreground hover:text-primary transition-smooth font-medium">
-              Institutions
+            <a href="#" className="text-white hover:text-secondary transition-smooth font-medium">
+              Solutions
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-smooth font-medium">
-              SAG Bureau
+            <a href="#" className="text-white hover:text-secondary transition-smooth font-medium">
+              Resources
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-smooth font-medium">
-              Finance Bureau
+            <a href="#" className="text-white hover:text-secondary transition-smooth font-medium">
+              Contact Us
             </a>
           </nav>
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" className="transition-spring hover:scale-105">
+            <Button 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-spring hover:scale-105 rounded-full px-6"
+            >
               Login
             </Button>
-            <Button className="bg-gradient-primary text-primary-foreground border-0 shadow-glow transition-spring hover:scale-105">
-              Register Now
+            <Button className="bg-foreground text-white border-0 shadow-glow transition-spring hover:scale-105 rounded-full px-6">
+              Explore
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-smooth"
+            className="lg:hidden p-2 text-white hover:text-secondary transition-smooth"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
