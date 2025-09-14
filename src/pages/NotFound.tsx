@@ -1,17 +1,9 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
+// src/pages/NotFound.tsx
+import { useNavigate } from "react-router-dom";
 import { Home, ArrowLeft } from "lucide-react";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
+export default function NotFound() {
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
@@ -23,27 +15,24 @@ const NotFound = () => {
             The page you're looking for doesn't exist or has been moved.
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            onClick={() => window.history.back()}
-            variant="outline"
-            className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+          <button
+            onClick={() => navigate(-1)} // go back
+            className="border border-white/30 text-white px-4 py-2 rounded hover:bg-white/10"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="mr-2 h-4 w-4 inline" />
             Go Back
-          </Button>
-          <Button 
-            onClick={() => window.location.href = "/"}
-            className="bg-secondary hover:bg-secondary-light text-secondary-foreground"
+          </button>
+          <button
+            onClick={() => navigate("/")} // go home
+            className="bg-secondary hover:bg-secondary-light text-secondary-foreground px-4 py-2 rounded"
           >
-            <Home className="mr-2 h-4 w-4" />
+            <Home className="mr-2 h-4 w-4 inline" />
             Return Home
-          </Button>
+          </button>
         </div>
       </div>
     </div>
   );
-};
-
-export default NotFound;
+}
